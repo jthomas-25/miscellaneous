@@ -1,0 +1,53 @@
+.data 100
+.label a
+01
+.label b
+02
+.label c
+03
+.text
+ldr r0, a
+ldr r1, b
+ldr r2, c
+cmp r0, #01
+beq case1
+cmp r0, #02
+beq case2
+cmp r0, #03
+beq case3
+cmp r0, #04
+beq case4
+cmp r0, #05
+beq case5
+cmp r0, #06
+beq case6
+cmp r0, #07
+beq case7
+b default
+.label case1
+add r0, r1, r2
+b endswitch
+.label case2
+sub r0, r1, r2
+b endswitch
+.label case3
+mul r0, r1, r2
+b endswitch
+.label case4
+div r0, r1, r2
+b endswitch
+.label case5
+and r0, r1, r2
+b endswitch
+.label case6
+orr r0, r1, r2
+b endswitch
+.label case7
+eor r0, r1, r2
+b endswitch
+.label default
+mov r0, #00
+.label endswitch
+str r0, a
+.label halt
+b halt

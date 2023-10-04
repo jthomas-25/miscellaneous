@@ -1,0 +1,146 @@
+.data 100
+.label a
+01
+.data
+03
+.data
+32
+.data
+06
+.data
+03
+.data
+03
+.data
+06
+.data
+08
+.data
+09
+.data
+0a
+.data
+00
+.label x
+00
+.label *a
+100
+.text
+ldr r0, *a
+mov r1, #0a
+mov r2, #03
+bl count
+str r0, x
+ldr r0, *a
+mov r1, #0a
+bl largest
+str r0, x
+ldr r0, *a
+bl size
+str r0, x
+.label halt
+b halt
+.label count
+mov r3, #28
+sub r13, r13, r3
+stx r0, r13, 00
+stx r1, r13, 04
+stx r2, r13, 08
+stx r4, r13, 14
+stx r5, r13, 18
+stx r6, r13, 1c
+stx r7, r13, 20
+stx r14, r13, 24
+mov r3, #00
+stx r3, r13, 0c
+mov r5, r0
+mov r4, #00
+stx r4, r13, 10
+.label loop1
+cmp r4, r1
+bge endloop1
+ldx r6, r5, 00
+cmp r6, r2
+bne skip_count
+mov r7, #01
+add r3, r3, r7
+stx r3, r13, 0c
+.label skip_count
+mov r7, #04
+add r5, r5, r7
+stx r5, r13, 00
+mov r7, #01
+add r4, r4, r7
+stx r4, r13, 10
+b loop1
+.label endloop1
+mov r0, r3
+ldx r4, r13, 14
+ldx r5, r13, 18
+ldx r6, r13, 1c
+ldx r7, r13, 20
+ldx r14, r13, 24
+mov r3, #28
+add r13, r13, r3
+mov r15, r14
+.label largest
+mov r2, #20
+sub r13, r13, r2
+stx r0, r13, 00
+stx r1, r13, 04
+stx r4, r13, 10
+stx r5, r13, 14
+stx r6, r13, 18
+stx r14, r13, 1c
+ldx r2, r0, 00
+stx r2, r13, 08
+mov r3, r0
+stx r3, r13, 0c
+mov r4, #04
+mul r4, r4, r1
+add r4, r0, r4
+.label loop2
+ldx r5, r3, 00
+cmp r5, r2
+ble skipupdate
+mov r2, r5
+stx r2, r13, 08
+.label skipupdate
+mov r6, #04
+add r3, r3, r6
+stx r3, r13, 0c
+cmp r3, r4
+blt loop2
+mov r0, r2
+ldx r4, r13, 10
+ldx r5, r13, 14
+ldx r6, r13, 18
+ldx r14, r13, 1c
+mov r2, #20
+add r13, r13, r2
+mov r15, r14
+.label size
+mov r1, #10
+sub r13, r13, r1
+stx r0, r13, 00
+stx r4, r13, 08
+stx r14, r13, 0c
+mov r1, #00
+stx r1, r13, 04
+.label loop3
+mov r4, #01
+add r1, r1, r4
+stx r1, r13, 04
+mov r4, #04
+mul r4, r4, r1
+add r2, r0, r4
+stx r2, r13, 00
+ldx r3, r2, 00
+cmp r3, #00
+bne loop3
+mov r0, r1
+ldx r4, r13, 08
+ldx r14, r13, 0c
+mov r1, #10
+add r13, r13, r1
+mov r15, r14

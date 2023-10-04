@@ -1,0 +1,15 @@
+10/25 Write Programs 1 and 2 in ARM32 assembly.
+10/31 Write Program 3 in ARM32 assembly.
+11/4 Write Program 4 in ARM32 assembly.
+11/10 1-3AM: Design and implement decode() in isa.c.
+11/10 12:30-12:40PM: Implement show_regs() in cpu.c.
+11/11 12-2AM: Design and implement step() in cpu.c. Update decode() to detect an invalid instruction.
+11/11 Implement step_n() in cpu.c.
+11/13 6-6:05PM: Implement step_show_reg() in cpu.c.
+11/14 12:15-12:30AM: Implement step_show_reg_mem() in cpu.c.
+11/14 12:30-12:45AM: Convert ARM32 assembly version of Program 1 to Tiny emu assembly.
+11/16 6:45-7PM: Rewrite Program 2 in Tiny emu assembly.
+11/17 Rewrite Program 3 in Tiny emu assembly.
+11/17 Create Tiny emu load file (.tisa) for Program 5.
+11/23 Rewrite Program 4 in Tiny emu assembly.
+11/23-11/27 Review code, test, and debug.

@@ -1,0 +1,18 @@
+.data 100
+.label a
+0a
+.label b
+14
+.label c
+00
+.text
+ldr r0, a
+ldr r1, b
+cmp r0, r1
+bge else
+str r0, c
+b endif
+.label else
+str r1, c
+.label endif
+b endif

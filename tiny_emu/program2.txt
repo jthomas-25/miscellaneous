@@ -1,0 +1,21 @@
+.data 100
+.label sum
+00
+.label n
+0a
+.label i
+01
+.text
+ldr r0, sum
+ldr r1, n
+ldr r2, i
+mov r3, #01
+.label loop
+add r0, r0, r2
+str r0, sum
+add r2, r2, r3
+str r2, i
+cmp r2, r1
+ble loop
+.label halt
+b halt

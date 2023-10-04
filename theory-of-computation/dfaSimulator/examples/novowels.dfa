@@ -1,0 +1,10 @@
+r,q
+a,b,c
+r
+r
+(r,b)->r
+(r,c)->r
+(r,a)->q
+(q,a)->q
+(q,b)->q
+(q,c)->q
